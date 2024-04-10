@@ -28,18 +28,25 @@
             text-align: center;
             margin-top: 10px;
         }
-        .dice-img{
+
+        .dice-img {
             height: 200px;
             display: block;
             margin: 0 auto;
         }
-        .btn{
+
+        .btn {
             font-size: 18px;
             font-weight: bold;
             padding: 6px 22px;
             display: block;
-            margin: 20px auto;
+            margin: 30px auto;
             border-radius: 10px;
+            cursor: pointer;
+            background-color: #00DBDE;
+            background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+
+
 
         }
     </style>
@@ -48,10 +55,48 @@
 <body>
     <div class="main-container">
         <h1 class="main-heading">Dice-Roller</h1>
-        <img src="./img/default.png" class="dice-img" id="dice-img"/>
-        <button class="btn">Dice Roller</button>
+        <img src="./img/default.png" class="dice-img" id="dice-img" />
+        <button class="btn" onclick="roll()">Dice Roller</button>
 
     </div>
+    <!-- Javascript  -->
+    <script>
+        function roll() {
+            const min = 1;
+            const max = 6;
+            const randomValue = Math.round(Math.random() * (max-min) + (min));
+            console.log(randomValue)
+            const imageElement = document.getElementById("dice-img")
+            switch(randomValue){
+                case(1):
+                    imageElement.src = "./img/one.png";
+                    break;
+                case(2):
+                    imageElement.src = "./img/two.png";
+                    break;
+
+                case(3):
+                    imageElement.src = "./img/three.png";
+                    break;
+
+                case(4):
+                    imageElement.src = "./img/four.png";
+                    break;
+
+                case(5):
+                    imageElement.src = "./img/five.png";
+                    break;
+                case(6):
+                    imageElement.src = "./img/six.png";
+                    break;
+
+
+
+
+
+            }
+        }
+    </script>
 </body>
 
 </html>
