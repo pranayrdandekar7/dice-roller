@@ -49,41 +49,48 @@
             background-color: #00DBDE;
             /* background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); */
             background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-            color:white;
+            color: white;
             border: 1px solid black;
 
         }
-        .btn:hover{
+
+        .btn:hover {
 
             background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
             color: black;
 
         }
+
         @media screen and (min-width:300px) and (max-width:450px) {
             .main-container {
-            width: 70%;
-            
-        }
-        
-        .main-heading {
-            font-size: 27px;
-        }
-        .dice-img {
-            height: 170px;;
-        }
+                width: 70%;
+
+            }
+
+            .main-heading {
+                font-size: 27px;
+            }
+
+            .dice-img {
+                height: 170px;
+                ;
+            }
 
         }
-        @keyframes roll{
-              0%{
+
+        @keyframes roll {
+            0% {
                 transform: rotate(0deg);
-              }
-              100%{
+            }
+
+            100% {
                 transform: rotate(360deg);
-              }
-              
+            }
+
         }
-        .animate{
-          animation:roll 1s infinite;
+
+        .animate {
+            animation: roll 1s infinite;
         }
     </style>
 </head>
@@ -91,7 +98,7 @@
 <body>
     <div class="main-container">
         <h1 class="main-heading">Dice-Roller</h1>
-        <img src="./img/default.png" class="dice-img animate" id="dice-img" />
+        <img src="./img/default.png" class="dice-img" id="dice-img" />
         <button class="btn" onclick="roll()">Dice Roller</button>
 
     </div>
@@ -100,37 +107,44 @@
         function roll() {
             const min = 1;
             const max = 6;
-            const randomValue = Math.round(Math.random() * (max-min) + (min));
+            const randomValue = Math.round(Math.random() * (max - min) + (min));
             console.log(randomValue)
-            const imageElement = document.getElementById("dice-img")
-            switch(randomValue){
-                case(1):
+            const imageElement = document.getElementById("dice-img");
+
+            switch (randomValue) 
+            {
+                case (1):
                     imageElement.src = "./img/one.png";
                     break;
-                case(2):
+                case (2):
                     imageElement.src = "./img/two.png";
                     break;
 
-                case(3):
+                case (3):
                     imageElement.src = "./img/three.png";
                     break;
 
-                case(4):
+                case (4):
                     imageElement.src = "./img/four.png";
                     break;
 
-                case(5):
+                case (5):
                     imageElement.src = "./img/five.png";
                     break;
-                case(6):
+                case (6):
                     imageElement.src = "./img/six.png";
                     break;
 
 
-
-
-
             }
+            imageElement.classList.add('animate');
+
+             setTimeout(() => {
+                imageElement.classList.remove('animate');
+                
+             }, 1000);
+            
+
         }
     </script>
 </body>
