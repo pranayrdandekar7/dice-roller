@@ -111,8 +111,7 @@
             console.log(randomValue)
             const imageElement = document.getElementById("dice-img");
 
-            switch (randomValue) 
-            {
+            switch (randomValue) {
                 case (1):
                     imageElement.src = "./img/one.png";
                     break;
@@ -139,11 +138,11 @@
             }
             imageElement.classList.add('animate');
 
-             setTimeout(() => {
+            setTimeout(() => {
                 imageElement.classList.remove('animate');
-                
-             }, 1000);
-            
+
+            }, 800);
+
 
         }
     </script>
